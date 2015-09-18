@@ -1,0 +1,74 @@
+
+<form action="/banding2/main_search" method="POST">
+    <!-- 검색 -->
+    <div class="form-group" align="center">
+      <div class="input-group">
+          <input type="text" class="form-control" name="search_text">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="submit" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+      </div>
+    </div>
+    <br>
+    
+    <!-- 체크박스 -->
+    <div id="music_book" align="center">
+        <strong>악보 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="있음"> 있음 &nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="없음"> 없음 &nbsp;&nbsp;
+    </div>
+    <div align="center">
+        <strong>세션 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="보컬"> 보컬 &nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="일렉"> 일렉 &nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="어쿠"> 어쿠 &nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="베이스"> 베이스 &nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="드럼"> 드럼 &nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="신디"> 신디
+    </div>
+    <div id="degree" align="center">   
+        <strong>난이도 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="상"> &nbsp;&nbsp;&nbsp;상 &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="중"> &nbsp;&nbsp;&nbsp;중 &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="chk_info" value="하"> &nbsp;&nbsp;&nbsp;하 &nbsp;&nbsp;&nbsp;
+    </div>
+</form>
+<br><br><br><br><br><br>
+
+
+
+<% i=0 %>
+<% while i < @title_result.length-1 %>
+    <div align="center">
+        <table> 
+            <tbody>
+                <td>
+                    
+                </td>
+                <td>
+                    <tr height="25">
+                    <td width="250" ><strong><%= @singer_result[i] %></strong></td>
+                    </tr>
+                    <tr height="25">
+                        <td width="250" ><strong><%= @title_result[i] %></strong></td>
+                    </tr>
+                    <tr height="25">
+                        <td width="250" >장르</td>
+                        <td width="150" ><%= @album_result[i] %></td>
+                    </tr>
+                    <tr height="25">
+                        <td width="250" >악보유무</td>
+                        <td width="150" >가사</td>
+                    </tr>
+                </td>
+            </tbody>
+        </table> 
+        <br>
+        <a href="http://www.akbobada.com<%= @url_result[i] %>">악보바다</a>
+        <br>
+
+       <% i+=1 %>
+    </div>
+    <br><br>
+    
+<%end%>
